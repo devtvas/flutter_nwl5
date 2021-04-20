@@ -1,4 +1,3 @@
-import 'package:DevQuiz/rive/rive_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'core/app_widget.dart';
@@ -16,8 +15,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // home: AppWidget(),
-      home: RiveWidget(),
+      home: AppWidget(),
+      // home: RiveWidget(),
     );
   }
 }
