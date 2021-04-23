@@ -1,14 +1,13 @@
-import 'package:devquiz/core/core.dart';
-import 'package:devquiz/home/home_repository.dart';
-import 'package:devquiz/home/home_state.dart';
-import 'package:devquiz/shared/models/answer_model.dart';
-import 'package:devquiz/shared/models/question_model.dart';
-import 'package:devquiz/shared/models/quiz_model.dart';
 import 'package:devquiz/shared/models/users_model.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/foundation.dart';
+
+import 'home_repository.dart';
+import 'home_state.dart';
+import 'package:devquiz/shared/models/quiz_model.dart';
 
 class HomeController {
-  final stateNotifier = ValueNotifier<HomeState>(HomeState.empty);
+  ValueNotifier<HomeState> stateNotifier =
+      ValueNotifier<HomeState>(HomeState.empty);
   set state(HomeState state) => stateNotifier.value = state;
   HomeState get state => stateNotifier.value;
 
@@ -19,12 +18,14 @@ class HomeController {
 
   void getUser() async {
     state = HomeState.loading;
+    await Future.delayed(Duration(seconds: 2));
     user = await repository.getUser();
     state = HomeState.success;
   }
 
-  Future<void> getQuizzes() async {
+  void getQuizzes() async {
     state = HomeState.loading;
+    await Future.delayed(Duration(seconds: 2));
     quizzes = await repository.getQuizzes();
     state = HomeState.success;
   }

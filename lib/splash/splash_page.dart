@@ -1,10 +1,12 @@
 import 'package:devquiz/core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:url_launcher/url_launcher.dart';
 
 class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Future.delayed(Duration(seconds: 2)).then((_) => Navigator.push(
+        context, MaterialPageRoute(builder: (context) => AppWidget())));
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(gradient: AppGradients.linear),
@@ -33,12 +35,12 @@ class SplashPage extends StatelessWidget {
     );
   }
 
-  _launchURL() async {
-    const url = 'https://github.com/Thrasys';
-    if (await canLaunch(url)) {
-      await launch(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
+  // _launchURL() async {
+  //   const url = 'https://github.com/Thrasys';
+  //   if (await canLaunch(url)) {
+  //     await launch(url);
+  //   } else {
+  //     throw 'Could not launch $url';
+  //   }
+  // }
 }

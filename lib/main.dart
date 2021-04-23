@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'core/app_widget.dart';
+import 'splash/splash_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,8 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: AppWidget(),
-      // home: RiveWidget(),
+      home: SplashPage(),
     );
   }
 }

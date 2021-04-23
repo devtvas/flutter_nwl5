@@ -1,19 +1,13 @@
-// import 'package:devquiz/shared/models/answer_mode.dart';
-
 import 'dart:convert';
 
-import 'package:devquiz/shared/models/answer_model.dart';
+import 'answer_model.dart';
 
 class QuestionModel {
-  final String? title;
+  final String title;
   final List<AnswerModel> answers;
 
-  QuestionModel({
-    required this.title,
-    required this.answers,
-  }) : assert(
-          answers.length == 3,
-        );
+  QuestionModel({required this.title, required this.answers})
+      : assert(answers.length == 4);
 
   Map<String, dynamic> toMap() {
     return {
@@ -26,7 +20,8 @@ class QuestionModel {
     return QuestionModel(
       title: map['title'],
       answers: List<AnswerModel>.from(
-          map['answers']?.map((x) => AnswerModel.fromMap(x))),
+        map['answers']?.map((x) => AnswerModel.fromMap(x)),
+      ),
     );
   }
 
@@ -35,3 +30,41 @@ class QuestionModel {
   factory QuestionModel.fromJson(String source) =>
       QuestionModel.fromMap(json.decode(source));
 }
+
+// // import 'package:devquiz/shared/models/answer_mode.dart';
+
+// import 'dart:convert';
+
+// import 'package:devquiz/shared/models/answer_model.dart';
+
+// class QuestionModel {
+//   final String? title;
+//   final List<AnswerModel> answers;
+
+//   QuestionModel({
+//     required this.title,
+//     required this.answers,
+//   }) : assert(
+//           answers.length == 3,
+//         );
+
+//   Map<String, dynamic> toMap() {
+//     return {
+//       'title': title,
+//       'answers': answers.map((x) => x.toMap()).toList(),
+//     };
+//   }
+
+//   factory QuestionModel.fromMap(Map<String, dynamic> map) {
+//     return QuestionModel(
+//       title: map['title'],
+//       answers: List<AnswerModel>.from(
+//           map['answers']?.map((x) => AnswerModel.fromMap(x))),
+//     );
+//   }
+
+//   String toJson() => json.encode(toMap());
+
+//   factory QuestionModel.fromJson(String source) =>
+//       QuestionModel.fromMap(json.decode(source));
+// }
