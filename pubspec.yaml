@@ -12,6 +12,7 @@ dependencies:
   google_fonts: ^2.0.0
   rive: ^0.7.2
   url_launcher: ^6.0.3
+  share_plus: ^2.0.1
 
 dev_dependencies:
   flutter_test:
