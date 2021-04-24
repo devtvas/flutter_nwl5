@@ -27,8 +27,7 @@
                 "title": "Qual a versao do Flutter Engage?",
                 "answers": [
                     {
-                        "title": "Versao 2",
-                        "isRight": true
+                        "title": "Nenhuma das alternativas"
                     },
                     {
                         "title": "Versao 1"
@@ -37,7 +36,8 @@
                         "title": "Versao 3"
                     },
                     {
-                        "title": "Nenhuma das anteriores"
+                        "title": "Versao 2",
+                        "isRight": true
                     }
                 ]
             }

@@ -66,7 +66,7 @@ class ResultPage extends StatelessWidget {
                         child: NextButtonWidget.purple(
                             label: "Compartilhar",
                             onTap: () => Share.share(
-                                'check out my website https://www.linkedin.com/in/tarcisiovalentim/')),
+                                'acesse agora meu portfolio https://github.com/devtvas')),
                       )),
                     ],
                   ),
