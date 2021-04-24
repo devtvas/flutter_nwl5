@@ -6,8 +6,11 @@ import 'package:flutter/material.dart';
 
 class AppBarWidget extends PreferredSize {
   final UserModel user;
-  AppBarWidget({required this.user})
-      : super(
+  final VoidCallback onTap;
+  AppBarWidget({
+    required this.user,
+    required this.onTap,
+  }) : super(
           preferredSize: Size.fromHeight(250),
           child: Container(
             height: 250,
@@ -33,13 +36,16 @@ class AppBarWidget extends PreferredSize {
                                   style: AppTextStyles.titleBold)
                             ]),
                       ),
-                      Container(
-                        width: 58,
-                        height: 58,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          image: DecorationImage(
-                            image: NetworkImage(user.photoUrl),
+                      GestureDetector(
+                        onTap: onTap,
+                        child: Container(
+                          width: 58,
+                          height: 58,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            image: DecorationImage(
+                              image: NetworkImage(user.photoUrl),
+                            ),
                           ),
                         ),
                       ),

@@ -1,5 +1,6 @@
 import 'package:devquiz/challenge/challenge_page.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'home_controller.dart';
 import 'package:devquiz/core/core.dart';
@@ -17,6 +18,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final _url = "https://github.com/devtvas";
   final controller = HomeController();
   @override
   void initState() {
@@ -28,12 +30,20 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void _launchURL() async => await canLaunch(_url)
+      ? await launch(_url)
+      : throw 'Could not launch $_url';
+
   @override
   Widget build(BuildContext context) {
     if (controller.state == HomeState.success) {
       return Scaffold(
         // backgroundColor: AppColors.border,
-        appBar: AppBarWidget(user: controller.user!),
+        appBar: AppBarWidget(
+            user: controller.user!,
+            onTap: () => setState(() {
+                  _launchURL();
+                })),
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
