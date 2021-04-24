@@ -65,10 +65,8 @@ class ResultPage extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(horizontal: 40),
                         child: NextButtonWidget.purple(
                             label: "Compartilhar",
-                            onTap: () {
-                              Share.share(
-                                  'check out my website https://example.com');
-                            }),
+                            onTap: () => Share.share(
+                                'check out my website https://example.com')),
                       )),
                     ],
                   ),

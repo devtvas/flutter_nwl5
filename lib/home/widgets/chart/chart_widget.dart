@@ -1,7 +1,25 @@
 import 'package:devquiz/core/core.dart';
 import 'package:flutter/material.dart';
 
-class ChartWidget extends StatelessWidget {
+class ChartWidget extends StatefulWidget {
+  final double percent;
+
+  const ChartWidget({Key? key, required this.percent}) : super(key: key);
+  @override
+  _ChartWidgetState createState() => _ChartWidgetState();
+}
+
+class _ChartWidgetState extends State<ChartWidget>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  void initAnimation() {
+    _controller =
+        AnimationController(vsync: this, duration: Duration(seconds: 3));
+    _animation = Tween(begin: 0.0, end: widget.percent).animate(_controller);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
