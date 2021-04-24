@@ -4,7 +4,7 @@ import 'package:devquiz/core/app_colors.dart';
 import 'package:devquiz/home/widgets/chart/chart_widget.dart';
 
 class ScoreCardWidget extends StatelessWidget {
-  final double percent;
+  final int percent;
   const ScoreCardWidget({
     Key? key,
     required this.percent,
