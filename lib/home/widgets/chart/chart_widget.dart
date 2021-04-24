@@ -14,37 +14,47 @@ class _ChartWidgetState extends State<ChartWidget>
   late AnimationController _controller;
   late Animation<double> _animation;
 
-  void initAnimation() {
+  void _initAnimation() {
     _controller =
         AnimationController(vsync: this, duration: Duration(seconds: 3));
     _animation = Tween(begin: 0.0, end: widget.percent).animate(_controller);
+    _controller.forward();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _initAnimation();
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 80,
-      height: 80,
-      child: Stack(
-        children: [
-          Container(
-            width: 80,
-            height: 80,
-            child: CircularProgressIndicator(
-              strokeWidth: 10,
-              value: 0.75,
-              backgroundColor: AppColors.chartSecondary,
-              valueColor: AlwaysStoppedAnimation<Color>(AppColors.chartPrimary),
-            ),
+        width: 80,
+        height: 80,
+        child: AnimatedBuilder(
+          animation: _animation,
+          builder: (context, _) => Stack(
+            children: [
+              Container(
+                width: 80,
+                height: 80,
+                child: CircularProgressIndicator(
+                  strokeWidth: 10,
+                  value: _animation.value,
+                  backgroundColor: AppColors.chartSecondary,
+                  valueColor:
+                      AlwaysStoppedAnimation<Color>(AppColors.chartPrimary),
+                ),
+              ),
+              Center(
+                child: Text(
+                  "${(_animation.value * 100).toStringAsPrecision(0)}% ",
+                  style: AppTextStyles.heading,
+                ),
+              )
+            ],
           ),
-          Center(
-            child: Text(
-              "75% ",
-              style: AppTextStyles.heading,
-            ),
-          )
-        ],
-      ),
-    );
+        ));
   }
 }
