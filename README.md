@@ -1,4 +1,4 @@
-# flutter_nwl5
+# DevQuiz
 
 A new Flutter project.
 

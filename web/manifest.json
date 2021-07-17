@@ -1,6 +1,6 @@
 {
-    "name": "flutter_nwl5",
-    "short_name": "flutter_nwl5",
+    "name": "DevQuiz",
+    "short_name": "DevQuiz",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
